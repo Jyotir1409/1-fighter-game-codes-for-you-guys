@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #87CEEB; /* Sky blue */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+}
+
+#game-container {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+}
+
+/* UI Overlays */
+#ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top Bar: Health and Timer */
+#hud {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    display: none; /* Hidden until game starts */
+}
+
+.health-bar-container {
+    width: 40%;
+    height: 30px;
+    background-color: #333;
+    border: 3px solid #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+#p1-health {
+    width: 100%;
+    height: 100%;
+    background-color: #007bff; /* Blue */
+    transition: width 0.1s ease-out;
+    transform-origin: left;
+}
+
+#p2-health {
+    width: 100%;
+    height: 100%;
+    background-color: #dc3545; /* Red */
+    transition: width 0.1s ease-out;
+    float: right;
+}
+
+#timer {
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 5px black;
+    width: 10%;
+    text-align: center;
+}
+
+/* Overlays: Start & Game Over */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+    color: white;
+}
+
+h1 {
+    font-size: 64px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px #000;
+}
+
+.instructions {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    display: flex;
+    gap: 40px;
+}
+
+button {
+    padding: 15px 40px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 5px 0 #cc9900;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+button:active {
+    transform: translateY(5px);
+    box-shadow: 0 0 0 #cc9900;
+}
+
+#game-over {
+    display: none;
+}
